@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.primary-color{
+  @apply text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-600 inline-block;
+}
+
+/* body{
+  background-color: black;
+} */
+
+/* index.css */
+body.dark {
+  background-color: #121212; /* Dark background for the entire page */
+  color: #e0e0e0; /* Light text color */
+}
+
+body.dark a {
+  color: #bb86fc; /* Links in dark mode */
+}
+
+body.dark h1, body.dark h2, body.dark h3, body.dark h4,body.dark p, body.dark h5, div, body.dark h6 {
+  color: #e0e0e0; /* Headers in dark mode */
+}
+
+
+body.light h1, body.light h2, body.light h3, body.light h4,body.light p, body.light h5, div, body.light h6 {
+  color: #121212; /* Headers in dark mode */
+}
+
+body.light section{
+  background-color: blue;
+}
+
+
+/* Additional global styles for dark mode */
+/* index.css */
+body {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.light {
+  background-color: #ffffff;
+  color: black;
+}
+
+
+.foot.light{
+  background-color: blue;
+  color: #000000;
+}
+.foot.dark{
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+
+
+
+
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+}
+
+.animate-shake {
+  animation: shake 1s ease-in-out infinite;
+}
