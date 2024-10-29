@@ -1,36 +1,33 @@
+import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { BiArrowToBottom } from "react-icons/bi";
 
 const AccordionItem = ({ title, content }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="border border-gray-300 rounded mb-2">
+    <motion.div className="border border-gray-300 rounded mb-2"
+    initial={{ x: '-100%'}}
+   
+    // animate={{ x:  0}}
+    transition={{ duration: 0.9, ease: 'easeInOut' }}
+    whileInView={{ x: 0 }}
+    
+
+    >
       <div
         className="flex justify-between items-center p-4 cursor-pointer"
         onClick={() => setIsOpen(!isOpen)}
       >
         <h2 className="text-lg font-semibold  transition-transform hover:transform hover:scale-110">{title}</h2>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className={`h-6 w-6 ${isOpen ? 'transform rotate-180' : ''}`}
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d={isOpen ? 'M19 9l-7 7-7-7' : 'M5 15l7-7 7 7'}
-          />
-        </svg>
+       <BiArrowToBottom  className={`h-6 w-6   ${isOpen ? 'transform rotate-180  ' : ''} text-blue-500`}/>
       </div>
       {isOpen && (
         <div className="p-4 border-t border-gray-300">
           <p className="text-white-700 primary-color font-bold">{content}</p>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 };
 
@@ -79,3 +76,6 @@ const Accordion = () => {
 };
 
 export default Accordion;
+
+
+

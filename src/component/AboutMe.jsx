@@ -1,33 +1,19 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import Accordion from './Accordion';
 import hero2 from '../assets/1723813704530.jpg'
+import { motion } from 'framer-motion';
 
 const AboutMe = () => {
-    const [isVisible, setIsVisible] = useState(false);
-    const aboutRef = useRef(null);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                setIsVisible(entry.isIntersecting);
-            },
-            { threshold: 0.2 } // Fire callback when at least 50% of the element is visible
-        );
-
-        if (aboutRef.current) {
-            observer.observe(aboutRef.current);
-        }
-
-        return () => {
-            if (aboutRef.current) {
-                observer.unobserve(aboutRef.current);
-            }
-        };
-    }, []);
+   
 
     return (
-        <div className=' max-w-[1200px] mx-auto my-12' id='about' ref={aboutRef}>
-            <div className={`md:grid md:grid-cols-2 sm:py-16 ${isVisible ? 'animate-fadeIn' : ''}`}>
+        <motion.div className=' max-w-[1200px] mx-auto my-12' id='about'
+        // initial={{ x: '-100%' }}
+        // whileInView={{ x: 0 }}
+        // transition={{ duration: 0.9, ease: 'backInOut'}}  // Add transition for smooth animation when switching between pages
+         
+         >
+            <div className='md:grid md:grid-cols-2 sm:py-16 '>
                 <div className="mt-4 md:mt-0 text-left flex flex-col h-full justify-start py-6 md:py-0">
                     <div className="my-auto mx-6">
                         <h2 className="text-4xl from-bold mb-4 primary-color">About Me</h2>
@@ -50,7 +36,7 @@ const AboutMe = () => {
                 </div>
                 <img className='mx-auto rounded-full py-8 md:py-0' alt='secondimage' src={hero2} width={300} height={300} />
             </div>
-        </div>
+        </motion.div>
     );
 };
 

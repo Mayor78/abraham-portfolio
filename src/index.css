@@ -14,6 +14,7 @@
 body.dark {
   background-color: #121212; /* Dark background for the entire page */
   color: #e0e0e0; /* Light text color */
+  transition: cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 
 body.dark a {
@@ -38,6 +39,8 @@ body.light section{
 /* index.css */
 body {
   transition: background-color 0.3s, color 0.3s;
+  scroll-behavior: smooth;
+ /* overflow-x: hidden; */
 }
 
 body.dark {

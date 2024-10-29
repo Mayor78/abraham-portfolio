@@ -60,10 +60,10 @@ const Navbar = () => {
                 ))}
             </ul>
             <div className="flex items-center">
-                <button onClick={toggleDarkMode} className="mr-4">
+                <button onClick={toggleDarkMode} className={`mr-4 ${darkMode ? 'text-white' :''}`}>
                     {darkMode ? <FaSun size={25} /> : <FaMoon size={25} />}
                 </button>
-                <div onClick={(event) => handleNav(event)} className="block md:hidden">
+                <div onClick={(event) => handleNav(event)} className={`block md:hidden ${darkMode ? 'text-white' : ''}`}>
                     {nav ? <AiOutlineClose size={25} /> : <AiOutlineMenu size={25} />}
                 </div>
             </div>
@@ -72,7 +72,7 @@ const Navbar = () => {
                 {nav && (
                     <motion.div
                         ref={navRef}
-                        className={`z-10 fixed top-0 left-0 w-[60%] h-auto ${darkMode ? 'bg-gray-800 text-gray-200' : 'bg-gray-200 text-gray-800'} md:hidden`}
+                        className={`z-10 fixed top-0 left-0 w-[90%] h-full ${darkMode ? 'bg-gray-800 text-gray-200' : 'bg-gray-200 text-gray-800'} md:hidden`}
                         initial={{ x: '-100%' }}
                         animate={{ x: 0 }}
                         exit={{ x: '-100%' }}

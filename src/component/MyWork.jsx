@@ -29,7 +29,7 @@ const ProjectCard = ({ project }) => {
     if (isInView) {
       controls.start({ opacity: 1, scale: 1 });
     } else {
-      controls.start({ opacity: 0, scale: 0.8 });
+      controls.start({ opacity: 0, scale: 0.5 });
     }
   };
 
@@ -40,7 +40,7 @@ const ProjectCard = ({ project }) => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, );
 
   return (
     <motion.div
@@ -56,9 +56,10 @@ const ProjectCard = ({ project }) => {
       <div className="opacity-0 group-hover:opacity-90 bg-[gray]/70 absolute inset-0 flex flex-col
       justify-center items-center">
         <span className='text-2xl font-bold text-white tracking-wider'>{project.title}</span>
+        <p className="mt-2 text-sm bg-slate-900 p-2 text-white">{project.description}</p>
         <div className="pt-8 text-center">
           <a href={project.link} target="_blank" rel="noopener noreferrer">
-            <button className='text-center rounded-lg px-4 py-3 m-2 bg-white text-gray-700 font-bold'>Live</button>
+            <button className='text-center rounded-lg hover:ease-out px-4 py-3 m-2 bg-white text-gray-700 font-bold'>Live</button>
           </a>
         </div>
       </div>

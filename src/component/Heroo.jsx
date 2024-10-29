@@ -1,6 +1,8 @@
 import React from 'react'
-import { TypeAnimation } from 'react-type-animation'
 import hero from '../assets/heropic.jpg'
+import { TypeAnimation } from 'react-type-animation'
+
+import { motion } from 'framer-motion'
 
     
 
@@ -15,12 +17,22 @@ const Heroo = () => {
 
   return (
     <div className='grid grid-cols-1 rounded-full sm:grid-cols-3 gap-8max-w-[1200px]  md:h-[70vh] mx-auto py-8 ' id='home'>
-        <div className="col-span-1  my-auto mx-auto w-[170px] h-auto lg:w-[300px]">
+        <motion.div className="col-span-1  my-auto mx-auto w-[170px] h-auto lg:w-[300px]"
+        initial={{ y: -400 }}
+        animate={{ y: 0 }}
+
+        transition={{ duration: 0.9 }}
+
+        >
          
                 <img className='rounded-full' src={hero} alt="imagehero" />
              
-        </div>
-        <div className="col-span-2 px-5 my-auto">
+        </motion.div>
+        <motion.div className="col-span-2 px-5 my-auto"
+        initial={{ x: 400 }}
+        animate={{ x: 0 }}
+        transition={{ duration: 0.9 }}
+        >
         <h1 className='text-4xl sm:text-5xl lg:text-8xl font-extrabold'> 
             <span className=" primary-color">
                 I'am a 
@@ -58,7 +70,7 @@ const Heroo = () => {
                     </a>
                 </div>
            
-        </div>
+        </motion.div>
 
     </div>
   )
