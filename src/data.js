@@ -14,7 +14,7 @@ export const projects = [
     title: 'Admin Dashboard',
     image: dashboard,
     link: 'https://ceo-dashboard-cyan.vercel.app',                                                                             
-    description: 'This is an Admin Dashboard Built with React and Tailwind'
+    description: 'This is an Admin Dashboard Built with React and Tailwind this is not responsive to mobile use large screen'
   },
   {
     title: 'Youtube',

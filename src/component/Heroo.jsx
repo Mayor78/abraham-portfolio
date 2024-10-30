@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import hero from '../assets/heropic.jpg'
 import { TypeAnimation } from 'react-type-animation'
 
@@ -9,6 +9,22 @@ import { motion } from 'framer-motion'
 
 
 const Heroo = () => {
+    const [showModal, setShowModal] = useState(false);
+    const myCv = '/cv.pdf';
+
+
+    const HandleDownload = ()=>{
+        const link = document.createElement('a');
+        link.href = myCv;
+        link.download = "CV.pdf";
+        link.terget ='_self';
+        link.click();
+        setShowModal(false);
+    };
+    const handlePreview = ()=>{
+        window.open(myCv, '_blank');
+        setShowModal(false);
+    }
 
 
 
@@ -58,11 +74,32 @@ const Heroo = () => {
                     My Name Is Abraham Mayowa I have 1+ years experince in web Developer
                 </p>
                 <div className="my-8 cv">
-                    <a href="https://acrobat.adobe.com/id/urn:aaid:sc:EU:406abbda-c383-4474-acbb-b46a17aabe2b" className='px-6 py-3 w-full rounded-xl mr-4
+                    <button onClick={()=>setShowModal(true)} className='px-6 py-3 w-ful rounded-xl mr-4
                     bg-gradient-to-br from-orange-500 to-pink-500 text-whit'>
                         Download CV
 
-                    </a>
+                    </button>
+                    {
+                        showModal && (
+                            <div className="fixed top-0 left-0 w-full h-full bg-black opacity-75 z-50">
+                                <div className="flex justify-center items-center h-full">
+                                    <div className="bg-blue-400 font-extrabold p-10 rounded-md w-full max-w-[400px]">
+                                        <button onClick={handlePreview} className='px-6 my-2 py-3 w-full rounded-xl mr-4
+                                        bg-gradient-to-br from-orange-500 to-pink-500 text-white'>
+                                            Preview CV
+                                        </button>
+                                        <button onClick={HandleDownload} className='px-6 my-2 py-3 w-full rounded-xl
+                                        bg-gradient-to-br from-orange-500 to-pink-500 text-white'>
+                                            Download CV
+                                        </button>
+                                        <button onClick={()=>setShowModal(false)}
+                                        className='px-6 py-3 w-full rounded-xl
+                                        bg-gradient-to-br from-orange-500 to-pink-500 my-2 text-white'>Cancel</button>
+                                        </div>
+                                        </div>
+                                        </div>
+                         ) }
+                   
                     <a href="#contact" className='px-6 py-3 w-full rounded-xl 
                     border border-gray-400 hover:bg-gradient-to-br from-orange-500 to-pink-500
                     text-whit hover:border-none '>

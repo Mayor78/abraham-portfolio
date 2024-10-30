@@ -5,10 +5,12 @@ import { motion, useAnimation } from 'framer-motion';
 const MyWork = () => {
   return (
     <div className='text-white max-w-[1200px] mx-auto my-12 ' id='work'>
-      <div className="pb-8">
-        <p className="text-4xl mb-3 font-bold primary-color">Work</p>
-        <p className="text-gray-400">Check out some of my recent work</p>
+      <div className=" flex justify-center">
+        <p className="text-4xl  font-bold primary-color">My Work</p>
       </div>
+       <div className="pb-2  flex justify-center">
+       <p className="text-gray-400">Check out some of my recent work</p>
+       </div>
       <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
         {projects.map((project, index) => (
           <ProjectCard key={index} project={project} />
